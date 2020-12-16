@@ -1,6 +1,7 @@
 .category {
   margin: 4em 0 0;
   position: relative;
+  min-height: calc(100vh - 12em);
   &__name {
     margin: 0 0 20px;
     line-height: 1.15;
@@ -12,7 +13,8 @@
     grid-gap: 2em 0.5em;
     grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
   }
-  @media (max-width: 376px) {
+  @media (max-width: 576px) {
+    min-height: calc(100vh - 15em);
     &__name {
       font-size: 1.2em;
     }

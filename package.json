@@ -15,7 +15,7 @@
   ],
   "author": "Luis Alberto I",
   "license": "MIT",
-  "homepage": "https://movies.herokuapp.com",
+  "homepage": "https://muhd.herokuapp.com/",
   "dependencies": {
     "ejs": "^3.1.5",
     "express": "^4.17.1"

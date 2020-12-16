@@ -88,3 +88,30 @@ a:visited {
     background-image: url("../img/loading.svg");
   }
 }
+
+@mixin icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.icon {
+  &__github {
+    @include icon;
+    background-image: url("../img/github.svg");
+  }
+  &__linkedin {
+    @include icon;
+    background-image: url("../img/linkedin.svg");
+  }
+  &__twitter {
+    @include icon;
+    background-image: url("../img/twitter.svg");
+  }
+  &__email {
+    @include icon;
+    background-image: url("../img/email.svg");
+  }
+}

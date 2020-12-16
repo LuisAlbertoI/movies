@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Details</title>
-</head>
-<body>
-  details page
-  <script src="/script/details.js" type="module"></script>
-</body>
+<%- include('templates/head', {title: 'Details' }); %>
+
+  <body>
+    <%- include('templates/nav'); %>
+      <%- include('templates/footer'); %>
+        <script src="/script/details.js" type="module"></script>
+  </body>
+
 </html>
