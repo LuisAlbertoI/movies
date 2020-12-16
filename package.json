@@ -1,0 +1,23 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "Aprendiendo un poco mas de javascript",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "heroku",
+    "node",
+    "ejs"
+  ],
+  "author": "Luis Alberto I",
+  "license": "MIT",
+  "homepage": "https://movies.herokuapp.com",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
