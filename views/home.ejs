@@ -4,6 +4,43 @@
 
   <body>
     <%- include('templates/nav'); %>
+      <main class="home">
+        <section class="wrapper">
+          <article class="listing">
+            <div class="listing__head">
+              <h2 class="title">Most Popular</h2>
+              <a href="/category" class="icon__more"></a>
+            </div>
+            <div class="listing__cover">
+              <div class="listing__items" id="trending">
+
+              </div>
+            </div>
+          </article>
+          <article class="listing">
+            <div class="listing__head">
+              <h2 class="title">Action</h2>
+              <a href="/category?action" class="icon__more"></a>
+            </div>
+            <div class="listing__cover">
+              <div class="listing__items" id="action">
+
+              </div>
+            </div>
+          </article>
+          <article class="listing">
+            <div class="listing__head">
+              <h2 class="title">Animation</h2>
+              <a href="/category?animation" class="icon__more"></a>
+            </div>
+            <div class="listing__cover">
+              <div class="listing__items" id="animation">
+
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
       <%- include('templates/footer'); %>
         <script src="/script/home.js" type="module"></script>
   </body>
