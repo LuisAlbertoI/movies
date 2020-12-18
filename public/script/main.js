@@ -29,14 +29,14 @@ export function failed(error) {
   body.children.remove();
 }
 
+export function rating(value) {
+  return 300 - value * 100 / 10 * 3;
+}
+
 export function hours(time) {
   const root = time / 60;
   const hours = Math.floor(root);
   const float = root.toFixed(2).slice(2);
   const min = Math.round(float * 60 / 100);
   return time ? ` - ${hours}h ${min}min` : '';
-}
-
-export function rating(value) {
-  return 300 - value * 100 / 10 * 3;
 }

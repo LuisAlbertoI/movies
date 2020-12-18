@@ -1,9 +1,9 @@
-import { request, render, rating, failed, hours } from './main.js';
+import { request, render, failed, rating, hours } from './main.js';
 const animation = document.getElementById('animation');
 const trending = document.getElementById('trending');
 const action = document.getElementById('action');
 
-const template = data => {
+const Card = data => {
   return `
       <div class="card">
       <div class="figure">
@@ -28,23 +28,27 @@ const template = data => {
   `;
 }
 
-(async function init() {
-  try {
-    render(null, animation);
-    render(null, trending);
-    render(null, action);
-    const {
-      data: { movies: Trending }
-    } = await request('list_movies.json');
-    render(Trending, trending, template);
-    const {
-      data: { movies: Action }
-    } = await request('list_movies.json', { genre: 'action' });
-    render(Action, action, template);
-    const {
-      data: { movies: Animation }
-    } = await request('list_movies.json', { genre: 'animation' });
-    render(Animation, animation, template);
-  } catch (error) {
+async function cacheExist(element, category) {
+  const cacheList = window.sessionStorage.getItem(category);
+  render(null, element);
+  if (cacheList) {
+    const data = JSON.parse(cacheList);
+    render(data, element, Card);
+  } else {
+    try {
+      const {
+        data: { movies }
+      } = await request('list_movies.json', {
+        genre: category
+      });
+      render(movies, element, Card);
+      window.sessionStorage.setItem(category, JSON.stringify(movies));
+    } catch (error) {
+
+    }
   }
-})()
+}
+
+cacheExist(trending, 'all');
+cacheExist(action, 'action');
+cacheExist(animation, 'animation');

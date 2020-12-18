@@ -1,6 +1,15 @@
-.listing {
-  margin: 1em 0 1.5em;
+.carousel {
+  margin: 1em 0 0;
+  padding: 0 0 1em;
   box-sizing: border-box;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.listing {
+  margin: 1em 0 0;
+  padding: 0 0 1em;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e8e8e8;
   &__head {
     display: flex;
     align-items: center;
@@ -17,6 +26,7 @@
   &__items {
     display: grid;
     grid-gap: 0 0.5em;
+    grid-template-rows: minmax(310px, auto);
     grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 6) / 7));
     scroll-behavior: smooth;
     scrollbar-width: none;

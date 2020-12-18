@@ -5,7 +5,7 @@ const title = document.querySelector('#name');
 const value = search.replace('?', '');
 let pages = 1;
 
-const template = data => {
+const Card = data => {
   return `
       <div class="card">
       <div class="figure">
@@ -43,7 +43,7 @@ function category(query, page) {
         page: page,
         limit: 30
       });
-      render(movies, container, template);
+      render(movies, container, Card);
       resolve('resolved');
     } catch (error) {
       failed(error);
