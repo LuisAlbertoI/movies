@@ -1,6 +1,5 @@
 @function card($num) {
-  $calc: percentage(1 / $num);
-  @return $calc - 0.08 * ($num - 1);
+  @return calc(calc(100% - 0.5em * #{$num - 1}) / #{$num});
 }
 
 .listing {

@@ -74,24 +74,24 @@
   display: grid;
   grid-gap: 0 0.5em;
   grid-template-rows: minmax(310px, auto);
-  grid-template-columns: repeat(20, 13.8057142857%);
+  grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 6) / 7));
   scroll-behavior: smooth;
   scrollbar-width: none;
   overflow-x: auto;
 }
 @media (max-width: 1024px) {
   .listing__items {
-    grid-template-columns: repeat(20, 19.68%);
+    grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 4) / 5));
   }
 }
 @media (max-width: 768px) {
   .listing__items {
-    grid-template-columns: repeat(20, 24.76%);
+    grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 3) / 4));
   }
 }
 @media (max-width: 576px) {
   .listing__items {
-    grid-template-columns: repeat(20, 49.92%);
+    grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 1) / 2));
   }
 }
 @media (max-width: 320px) {
