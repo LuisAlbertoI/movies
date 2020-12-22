@@ -1,15 +1,13 @@
-.carousel {
-  margin: 1em 0 0;
-  padding: 0 0 1em;
-  box-sizing: border-box;
-  border-bottom: 1px solid #e8e8e8;
+@function card($num) {
+  $calc: percentage(1 / $num);
+  @return $calc - 0.08 * ($num - 1);
 }
 
 .listing {
   margin: 1em 0 0;
   padding: 0 0 1em;
   box-sizing: border-box;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid var(--line);
   &__head {
     display: flex;
     align-items: center;
@@ -27,18 +25,18 @@
     display: grid;
     grid-gap: 0 0.5em;
     grid-template-rows: minmax(310px, auto);
-    grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 6) / 7));
+    grid-template-columns: repeat(20, card(7));
     scroll-behavior: smooth;
     scrollbar-width: none;
     overflow-x: auto;
     @media (max-width: 1024px) {
-      grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 4) / 5));
+      grid-template-columns: repeat(20, card(5));
     }
     @media (max-width: 768px) {
-      grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 3) / 4));
+      grid-template-columns: repeat(20, card(4));
     }
     @media (max-width: 576px) {
-      grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 1) / 2));
+      grid-template-columns: repeat(20, card(2));
     }
     @media (max-width: 320px) {
       grid-template-columns: repeat(20, 100%);

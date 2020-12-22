@@ -13,24 +13,22 @@ export async function request(endpoint, params) {
 function createElement(type, props, content) {
   const element = document.createElement(type);
   for (const key in props) { element.setAttribute(key, props[key]) }
-  return content ? element.textContent = content : element;
+  if (content) { element.textContent = content }
+  return element
 }
 
-export function render(data, element, template) {
+export async function render(data, element, template) {
+  element.append(createElement('div', { class: 'loader' }));
+  const { data: { movie_count, movies } } = await data;
   const loader = document.querySelector('.loader');
-  const create = createElement('div', { class: 'loader' });
-  data ? loader.remove() & data.map(item => {
-    element.innerHTML += template(item);
-  }) : element.append(create);
-}
-
-export function failed(error) {
-  const { document: { body } } = window;
-  body.children.remove();
+  movie_count > 0 ? loader.remove() & movies.map(movie => {
+    element.innerHTML += template(movie);
+  }) : loader.remove() & element.append(createElement('div', { class: 'message' }));
 }
 
 export function rating(value) {
-  return 300 - value * 100 / 10 * 3;
+  const increment = value * 100 / 10;
+  return 300 - increment * 3;
 }
 
 export function hours(time) {
@@ -38,5 +36,5 @@ export function hours(time) {
   const hours = Math.floor(root);
   const float = root.toFixed(2).slice(2);
   const min = Math.round(float * 60 / 100);
-  return time ? ` - ${hours}h ${min}min` : '';
+  return hours & min ? ` - ${hours}h ${min}min` : hours ? ` - ${hours}h` : min ? ` - ${min}min` : '';
 }

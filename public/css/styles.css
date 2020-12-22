@@ -1,5 +1,4 @@
 .category {
-  margin: 4em 0 0;
   position: relative;
   min-height: calc(100vh - 12em);
 }
@@ -29,18 +28,13 @@
   align-items: center;
   padding: 2em 0 1em;
 }
-.footer__logo {
-  flex: 1;
-}
-.footer__logo .link {
-  font-size: 2.1em;
-  font-family: "Modak";
-}
 .footer__social {
+  flex: 1;
   display: grid;
   grid-gap: 0 2.5em;
   align-items: center;
   justify-items: center;
+  justify-content: flex-end;
   grid-template: 3em/repeat(4, 3em);
 }
 .footer__copyright {
@@ -49,24 +43,19 @@
 }
 @media (max-width: 576px) {
   .footer__social {
+    flex: initial;
     width: 100%;
-    margin: 0 0 1em;
+    margin: 0.5em 0;
+    justify-content: flex-start;
     grid-template: 2em/repeat(4, 2em);
   }
-}
-
-.carousel {
-  margin: 1em 0 0;
-  padding: 0 0 1em;
-  box-sizing: border-box;
-  border-bottom: 1px solid #e8e8e8;
 }
 
 .listing {
   margin: 1em 0 0;
   padding: 0 0 1em;
   box-sizing: border-box;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid var(--line);
 }
 .listing__head {
   display: flex;
@@ -85,24 +74,24 @@
   display: grid;
   grid-gap: 0 0.5em;
   grid-template-rows: minmax(310px, auto);
-  grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 6) / 7));
+  grid-template-columns: repeat(20, 13.8057142857%);
   scroll-behavior: smooth;
   scrollbar-width: none;
   overflow-x: auto;
 }
 @media (max-width: 1024px) {
   .listing__items {
-    grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 4) / 5));
+    grid-template-columns: repeat(20, 19.68%);
   }
 }
 @media (max-width: 768px) {
   .listing__items {
-    grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 3) / 4));
+    grid-template-columns: repeat(20, 24.76%);
   }
 }
 @media (max-width: 576px) {
   .listing__items {
-    grid-template-columns: repeat(20, calc(calc(100% - 0.5em * 1) / 2));
+    grid-template-columns: repeat(20, 49.92%);
   }
 }
 @media (max-width: 320px) {
@@ -142,14 +131,16 @@
   align-items: center;
   grid-template: repeat(2, 1fr)/1fr 3em;
 }
-.card .details span {
-  font-size: 12px;
-}
+.card .details span,
 .card .details .title {
   font-weight: 700;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+.card .details span {
+  font-size: 12px;
+  font-weight: normal;
 }
 .card .details .rating {
   width: 100%;
@@ -160,7 +151,8 @@
 }
 
 :root {
-  --link: #888;
+  --line: #eee;
+  --link: #ccc;
   --color: #000;
 }
 
@@ -176,6 +168,7 @@ body {
 a:link,
 a:visited {
   color: inherit;
+  display: inline-block;
   text-decoration: none;
 }
 
@@ -243,6 +236,15 @@ a:visited {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("../img/loading.svg");
+}
+
+.logo {
+  width: 98px;
+  height: 25px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../img/figure.svg");
 }
 
 .icon__github {

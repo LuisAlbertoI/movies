@@ -1,4 +1,4 @@
-import { request, render, failed, rating, hours } from './main.js';
+import { request, render, rating, hours } from './main.js';
 const { location: { search }, document: { body } } = window;
 const container = document.querySelector('#root');
 const title = document.querySelector('#name');
@@ -15,7 +15,7 @@ const Card = data => {
       </div>
       <div class="details">
         <a href="/details?${data.id}" class="title">${data.title}</a>
-        <span>(${data.year})${hours(data.runtime)}</span>
+        <span>(${data.year}) ${hours(data.runtime)}</span>
         <div class="rating">
           <div class="progress">
             <h3 class="value">${data.rating}</h3>
@@ -32,29 +32,25 @@ const Card = data => {
 
 function category(query, page) {
   return new Promise(async resolve => {
-    document.title = capitalize(query || 'Most Popular');
-    title.textContent = query || 'most popular';
-    render(null, container);
-    try {
-      const {
-        data: { movies }
-      } = await request('list_movies.json', {
+    document.title = capitalize(query || 'Trending');
+    title.textContent = query || 'Trending';
+    await render(
+      request('list_movies.json', {
         genre: query || 'all',
         page: page,
         limit: 30
-      });
-      render(movies, container, Card);
-      resolve('resolved');
-    } catch (error) {
-      failed(error);
-    }
+      }),
+      container,
+      Card
+    );
+    resolve()
   });
 }
 
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
 window.addEventListener('scroll', async function handle() {
-  if (window.innerHeight + window.scrollY > body.clientHeight) {
+  if (window.innerHeight + window.scrollY >= body.clientHeight) {
     window.removeEventListener('scroll', handle);
     await category(value, pages++);
     window.addEventListener('scroll', handle);

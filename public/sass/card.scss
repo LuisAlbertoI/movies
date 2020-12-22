@@ -24,14 +24,16 @@
     overflow: hidden;
     align-items: center;
     grid-template: repeat(2, 1fr) / 1fr 3em;
-    span {
-      font-size: 12px;
-    }
+    span,
     .title {
       font-weight: 700;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+    }
+    span {
+      font-size: 12px;
+      font-weight: normal;
     }
     .rating {
       width: 100%;

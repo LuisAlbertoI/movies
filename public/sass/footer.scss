@@ -3,18 +3,13 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 2em 0 1em;
-  &__logo {
-    flex: 1;
-    .link {
-      font-size: 2.1em;
-      font-family: "Modak";
-    }
-  }
   &__social {
+    flex: 1;
     display: grid;
     grid-gap: 0 2.5em;
     align-items: center;
     justify-items: center;
+    justify-content: flex-end;
     grid-template: 3em / repeat(4, 3em);
   }
   &__copyright {
@@ -23,8 +18,10 @@
   }
   @media (max-width: 576px) {
     &__social {
+      flex: initial;
       width: 100%;
-      margin: 0 0 1em;
+      margin: 0.5em 0;
+      justify-content: flex-start;
       grid-template: 2em / repeat(4, 2em);
     }
   }

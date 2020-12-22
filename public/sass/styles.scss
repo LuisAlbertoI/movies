@@ -6,7 +6,8 @@
 @import "./card.scss";
 
 :root {
-  --link: #888;
+  --line: #eee;
+  --link: #ccc;
   --color: #000;
 }
 
@@ -22,6 +23,7 @@ body {
 a:link,
 a:visited {
   color: inherit;
+  display: inline-block;
   text-decoration: none;
 }
 .wrapper,
@@ -88,6 +90,15 @@ a:visited {
     background-position: center;
     background-image: url("../img/loading.svg");
   }
+}
+
+.logo {
+  width: 98px;
+  height: 25px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../img/figure.svg");
 }
 
 @mixin icon {

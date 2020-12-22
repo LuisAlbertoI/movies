@@ -1,4 +1,4 @@
-import { request, render, failed } from './main.js';
+import { request, render } from './main.js';
 const { location: { search } } = window;
 const value = search.replace('?', '');
 
@@ -17,7 +17,6 @@ async function details(id) {
     });
     document.title = movie.title;
   } catch (error) {
-    failed(error);
   }
 }
 
