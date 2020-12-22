@@ -1,9 +1,10 @@
 .category {
   position: relative;
-  min-height: calc(100vh - 12em);
+  min-height: calc(100vh - 10.5em);
 }
 .category__name {
   margin: 0 0 20px;
+  padding: 8px 0 0;
   line-height: 1.15;
   text-transform: capitalize;
 }
@@ -15,7 +16,7 @@
 }
 @media (max-width: 576px) {
   .category {
-    min-height: calc(100vh - 15em);
+    min-height: calc(100vh - 12.5em);
   }
   .category__name {
     font-size: 1.5em;
@@ -170,6 +171,11 @@ a:visited {
   color: inherit;
   display: inline-block;
   text-decoration: none;
+}
+
+main {
+  margin: 3em 0 0;
+  box-sizing: border-box;
 }
 
 .wrapper,
