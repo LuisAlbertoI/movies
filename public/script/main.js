@@ -36,5 +36,5 @@ export function hours(time) {
   const hours = Math.floor(root);
   const float = root.toFixed(2).slice(2);
   const min = Math.round(float * 60 / 100);
-  return hours & min ? ` - ${hours}h ${min}min` : hours ? ` - ${hours}h` : min ? ` - ${min}min` : '';
+  return hours & min ? `${hours} h ${min} min` : hours ? `${hours} h` : min ? `${min} min` : '';
 }

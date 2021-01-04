@@ -1,6 +1,6 @@
-import { request, render } from './main.js';
-const { location: { search } } = window;
-const value = search.replace('?', '');
+const value = window.location.search.replace('?', '');
+import { request, render, rating, hours } from './main.js';
+import { language } from './langs.js';
 
 async function details(id) {
   try {
@@ -16,6 +16,8 @@ async function details(id) {
       });
     });
     document.title = movie.title;
+    console.log(movie)
+    console.log(language(movie.language))
   } catch (error) {
   }
 }

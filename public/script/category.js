@@ -5,9 +5,9 @@ const title = document.querySelector('#name');
 const value = search.replace('?', '');
 let pages = 1;
 
-const Card = data => {
+const Template = data => {
   return `
-      <div class="card">
+    <div class="card">
       <div class="figure">
         <a href="/details?${data.id}">
           <img src="${data.large_cover_image}" alt="${data.title}">
@@ -15,7 +15,7 @@ const Card = data => {
       </div>
       <div class="details">
         <a href="/details?${data.id}" class="title">${data.title}</a>
-        <span>(${data.year}) ${hours(data.runtime)}</span>
+        <span>(${data.year}) • ${hours(data.runtime)}</span>
         <div class="rating">
           <div class="progress">
             <h3 class="value">${data.rating}</h3>
@@ -41,7 +41,7 @@ function category(query, page) {
         limit: 30
       }),
       container,
-      Card
+      Template
     );
     resolve()
   });

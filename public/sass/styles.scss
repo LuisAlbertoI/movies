@@ -6,7 +6,7 @@
 @import "./card.scss";
 
 :root {
-  --line: #eee;
+  --line: #222;
   --link: #ccc;
   --color: #000;
 }
@@ -14,7 +14,6 @@
 body {
   margin: 0;
   font-size: 15px;
-  font-weight: 400;
   line-height: 1.5;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--color);
@@ -25,11 +24,6 @@ a:visited {
   color: inherit;
   display: inline-block;
   text-decoration: none;
-}
-
-main {
-  margin: 3em 0 0;
-  box-sizing: border-box;
 }
 
 .wrapper,
@@ -68,7 +62,7 @@ main {
     transform: rotate(-90deg);
     circle {
       fill: transparent;
-      stroke: rgba(240, 240, 240, 0.5);
+      stroke: rgba(34, 34, 34, 1);
       stroke-dasharray: 300;
       stroke-width: 10;
     }

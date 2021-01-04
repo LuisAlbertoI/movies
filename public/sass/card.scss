@@ -26,6 +26,7 @@
     grid-template: repeat(2, 1fr) / 1fr 3em;
     span,
     .title {
+      font-size: 14px;
       font-weight: 700;
       white-space: nowrap;
       text-overflow: ellipsis;
